@@ -5,3 +5,4 @@
 [submodule "public"]
 	path = public
 	url = https://github.com/Hitchcock717/hitchcock717.github.io.git
+	branch = master

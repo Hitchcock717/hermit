@@ -4,7 +4,6 @@ title:      "PaperWeekly-1: nlp中的实体关系抽取方法总结笔记"
 subtitle:   "关系事件抽取"
 date:       2020-03-24
 author:     "Hitchcock"
-# header-img: "landscape.jpg"
 tags:
     - NLP
 ---
@@ -23,7 +22,7 @@ tags:
 8. [Q8：实体关系抽取的前沿技术和挑战有哪些？如何解决低资源和复杂样本下的实体关系抽取？如何应用图神经网络](#Q8：实体关系抽取的前沿技术和挑战有哪些？如何解决低资源和复杂样本下的实体关系抽取？如何应用图神经网络)
 
 ---
-![抽取任务概述](paper-structure.jpg)
+[![抽取任务概述](https://z3.ax1x.com/2021/06/24/RQczfP.jpg)](https://imgtu.com/i/RQczfP)
 
 # Q1：与联合抽取对比，Pipeline方法有哪些缺点？
 
@@ -33,7 +32,7 @@ tags:
 # Q2：NER除了LSTM+CRF，还有哪些解码方式？如何解决嵌套实体问题？
 
 ### [关于LSTM](https://blog.csdn.net/Jerr__y/article/details/58598296)
-先得提到著名的RNN，“有记忆”的神经网络。可以把 RNNs 看成是一个普通的网络做了多次复制后叠加在一起组成的。每一网络会把它的输出传递到下一个网络中。我们可以把 RNNs 在时间步上进行展开，就得到下图这样：![RNN](RNN.png)
+先得提到著名的RNN，“有记忆”的神经网络。可以把 RNNs 看成是一个普通的网络做了多次复制后叠加在一起组成的。每一网络会把它的输出传递到下一个网络中。我们可以把 RNNs 在时间步上进行展开，就得到下图这样：[![RNN](https://z3.ax1x.com/2021/06/24/RQgsAA.png)](https://imgtu.com/i/RQgsAA)
 LSTM是特殊的、更好用的RNN，尤其对于上下文预测间隔较长的情况，LSTM很有用。相比RNN中间为单一的tanh层，LSTM更复杂。
 
 ### 核心思想
@@ -45,12 +44,12 @@ LSTM是特殊的、更好用的RNN，尤其对于上下文预测间隔较长的�
 
 ### Softmax函数
 用于多分类，将多个神经元映射进（0，1）区间，按概率比较。大概公式就是这样：
-![Softmax公式](Softmax.png)
+[![Softmax公式](https://z3.ax1x.com/2021/06/24/RQgg9P.png)](https://imgtu.com/i/RQgg9P)
 
 ### [其他激活函数](https://blog.csdn.net/shenxiaoming77/article/details/76795445)
-![Sigmoid，Tahn](activate.jpg)
+[![Sigmoid, Tahn](https://z3.ax1x.com/2021/06/24/RQghng.png)](https://imgtu.com/i/RQghng)
 tahn将一个实数输入映射到[-1,1]范围内，如上图（右）所示。当输入为0时，tanh函数输出为0，符合我们对激活函数的要求。然而，tanh函数也存在梯度饱和问题，导致训练效率低下。
-![ReLu](ReLu.jpg)
+[![Relu](https://z3.ax1x.com/2021/06/24/RQgq3V.png)](https://imgtu.com/i/RQgq3V)
 相比sigmoid和tanh函数，Relu激活函数的优点在于：
 > 梯度不饱和。梯度计算公式为：。因此在反向传播过程中，减轻了梯度弥散的问题，神经网络前几层的参数也可以很快的更新。
   计算速度快。正向传播过程中，sigmoid和tanh函数计算激活值时需要计算指数，而Relu函数仅需要设置阈值。
@@ -64,7 +63,7 @@ tahn将一个实数输入映射到[-1,1]范围内，如上图（右）所示。�
 CRF：给序列中的每一个token进行分类，好处是加入了上下文的联系。
 
 ### [对于分词边界错误的改进方法-LatticeLSTM+CRF](https://blog.csdn.net/qq_32728345/article/details/81264853)
-![示意图](LatticeLSTM.png)
+[![示意图](https://z3.ax1x.com/2021/06/24/RQgjuF.png)](https://imgtu.com/i/RQgjuF)
 如图所示，先将每个字符切分开，再用红色的cell表示中文词汇，形成网格结构。
 词汇边界通常为实体边界，根据大量语料构建词典，若当前字符与之前字符构成词汇，则从这些词汇中提取信息，联合更新记忆状态。
 jieba的全切分模式和搜索引擎模式，可以将所有组合列出；若遇到以相同词结尾的词汇时，会根据预先准备的字、词典，训练字词级别的向量。
@@ -78,7 +77,7 @@ jieba的全切分模式和搜索引擎模式，可以将所有组合列出；若
 ## 办法2：[指针网络（PointerNet）](https://zhuanlan.zhihu.com/p/48959800)
 先说seq2seq，常用在MT中做序列对齐。其中，加入Attention机制后，由于对encoder的隐含状态加权拼接至decoder，实现软对齐，效果提升。
 PointerNet是Attention机制的简化，用于解决类似寻找凸包问题。对于凸包问题的示例，如下：
-![凸包问题](Convex.jpg)
+[![凸包问题](https://z3.ax1x.com/2021/06/24/RQ2pNR.jpg)](https://imgtu.com/i/RQ2pNR)
 传统seq2seq模型解决方式是输入四个点的坐标，比如input list = [start, 1, 2, 3, 4, end]，则output list = [start, 1, 4, 2, 1, end]
 一旦list长度改变，则无法预测大于4的数字，而PointerNet可以。因为添加了指针，所以output list跟随input list变动而变动。而为什么说PointerNet是Attention机制的衍生，是因为Attention作用在encoder的weight变成了pointer，如想对某个元素增加weight，则直接point该元素即可。
 换句话说，传统带有注意力机制的seq2seq模型输出的是针对输出词汇表的一个概率分布，而Pointer Networks输出的则是针对输入文本序列的概率分布。
@@ -107,7 +106,7 @@ PointerNet是Attention机制的简化，用于解决类似寻找凸包问题。�
 （3）监督学习，主要分为基于特征（定义特征集合）、核函数（无需定义特征集合，核函数只是用来计算映射到高维空间之后的内积）和深度学习（主要贡献在于对Bag只需one-pass输入即可进行多个关系分类）。
 
 # Q4：什么是关系重叠&复杂关系问题？
-![关系图示例](Relationmap.jpg)
+[![关系图示例](https://z3.ax1x.com/2021/06/24/RQ2941.jpg)](https://imgtu.com/i/RQ2941)
 * a：正常关系问题
 * b：关系重叠问题，一对多。如“张学友演唱过《吻别》《在你身边》”中，存在2种关系：「张学友-歌手-吻别」和「张学友-歌手-在你身边」
 * c：关系重新问题，一对实体存在多种关系。如“周杰伦作曲并演唱《七里香》”中，存在2种关系：「周杰伦-歌手-七里香」和「周杰伦-作曲-七里香」
@@ -121,7 +120,7 @@ PointerNet是Attention机制的简化，用于解决类似寻找凸包问题。�
 需要做的：需要一个方法可以同时考虑一个句子中所有实体、实体与关系、关系与关系之间的交互。
 
 # Q6：介绍基于共享参数的联合抽取方法？
-![主要的研究方法](Papers.jpg)
+[![主要的研究方法](https://z3.ax1x.com/2021/06/24/RQ2FgK.jpg)](https://imgtu.com/i/RQ2FgK)
 在联合抽取中的实体和关系抽取的解码方式与Q2中的实体抽取的解码方式基本一致，主要包括：序列标注CRF/SoftMax、指针网络、分类SoftMax、Seq2Seq等。基于共享参数的联合抽取，实体抽取loss会与关系抽取loss相加。
 
 # Q7：介绍基于联合解码的联合抽取方法？
@@ -129,7 +128,7 @@ PointerNet是Attention机制的简化，用于解决类似寻找凸包问题。�
 - 用关系标签进行BIOES标注，head实体序号为1，tail实体序号为2。但该框架只能对实体在某个关系中进行表示，而对多关系无用
 - 对n个token的句子有n个标注框架，采用BIES标注，用CRF解码。该框架复杂度自然很高了。
 - 百度PaddlePaddle的SPO标注框架，这个挺有意思。
-![PaddlePaddle标注框架](PaddlePaddle.jpg)
+[![PaddlePaddle标注框架](https://z3.ax1x.com/2021/06/24/RQ2u4I.jpg)](https://imgtu.com/i/RQ2u4I)
 - 使用方法的是token level 的多label分类，即每一个token对应多个label。
 - 标注框架十分巧妙，如上图示例中形成的2个spo三元组，「王雪纯-配音-晴雯」和「王雪纯-配音-红楼梦」，存在两个关系「配音-人物」和「配音-作品」，多label标签就以关系标签建立。
 - 问题还在于对实体重叠关系抽取、多重同类关系无用，需引入后处理逻辑。

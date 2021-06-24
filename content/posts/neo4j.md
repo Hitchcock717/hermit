@@ -4,7 +4,6 @@ title:      "CQL Query Language -- Neo4j"
 subtitle:   "图数据库的查询语言"
 date:       2019-11-27
 author:     "Hitchcock"
-# header-img: "universe.jpg"
 tags:
     - Neo4j
     - Graphic database

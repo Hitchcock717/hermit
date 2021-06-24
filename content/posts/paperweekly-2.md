@@ -4,7 +4,6 @@ title:      "PaperWeekly-2: nlp中的基础知识点整理(partI)"
 subtitle:   "关系事件抽取"
 date:       2020-04-11
 author:     "Hitchcock"
-# header-img: "landscape.jpg"
 tags:
     - NLP
 ---

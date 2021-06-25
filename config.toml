@@ -1,11 +1,12 @@
 baseURL = "https://hitchcock717.github.io"
 languageCode = "en-us"
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 title = "Darth Vader"
 theme = "hermit"
 # enableGitInfo = true
 pygmentsCodefences  = true
 pygmentsUseClasses  = true
+disablePathToLower = false
 hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
 rssLimit = 10  # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License." # This message is only used by the RSS template.

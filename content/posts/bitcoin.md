@@ -53,13 +53,13 @@ categories: Note
 2. Merkle Tree
 
 **Hash Pointers**
-图示：{% asset_img WechatIMG604.png BitCoin-1 %} [摘自简书](https://www.jianshu.com/p/f3570d8e1d27)
+[![示意图1](https://z3.ax1x.com/2021/06/25/RlnoZR.png)](https://imgtu.com/i/RlnoZR) 
 > Compared with normal pointers, hash pointers can detect tampering by saving extra hash into the structure body.
-图示：{% asset_img WechatIMG605.png BitCoin-2 %}  [摘自简书](https://www.jianshu.com/p/f3570d8e1d27)
+[![示意图2](https://z3.ax1x.com/2021/06/25/RlupdI.png)](https://imgtu.com/i/RlupdI)
 > According to above pic, there is only a need to remember the last hash if detecting tampering because block chain is a linked list using hash pointers. 
 
 **Merkle Tree**
-图示：{% asset_img WechatIMG606.png BitCoin-3 %}  [摘自简书](https://www.jianshu.com/p/f3570d8e1d27)
+[![示意图3](https://z3.ax1x.com/2021/06/25/RluEQg.png)](https://imgtu.com/i/RluEQg)
 > First Tier(root node): Root Hash saved; Hash(root hash) = Hash(concat[hash(child node1)+hash(child node2)])
   Second/Third Tier: Hash Pointers; Save the hashes of data blocks in the bottom node
   Bottom Tier(omitted): called 'tx' ——> transaction 
@@ -74,7 +74,7 @@ Light Node(like wxapplet): block header saved only
 Question: How to prove any transaction logged into the block chain in terms of light nodes?
 
 Solution: The Merkle Tree can provide Merkle Proof.
-图示：{% asset_img WechatIMG607.png BitCoin-4 %}  [截取自课程视频](https://www.bilibili.com/video/av37065233?p=3)
+[![示意图4](https://z3.ax1x.com/2021/06/25/RluWkt.png)](https://imgtu.com/i/RluWkt)
 Proof of Membership: theta(log(n)) complexity if proposing Num(n) tx in the entire tree.
 Proof of Non-Membership: theta(n)
 
@@ -151,7 +151,7 @@ Threats from selfish mining:
 
 #### Unspent Transaction Output
 
-{% asset_img UTXO.png UTXO %}
+[![UTXO](https://z3.ax1x.com/2021/06/25/RlnWzF.png)](https://imgtu.com/i/RlnWzF)
 
 [参考知乎]( https://www.zhihu.com/question/59913301)
 
@@ -205,15 +205,15 @@ Supposing that there is a pool of at least 51 per cent computing power, which ki
 
 ## BitCoin Script
 [参考自知乎巴比特](https://zhuanlan.zhihu.com/p/25461051)
-输入交易见图示：{% asset_img WechatIMG608.png BitCoin-5 %} 
-输出交易见图示：{% asset_img WechatIMG609.png BitCoin-6 %} 
+输入交易见图示：[![示意图5](https://z3.ax1x.com/2021/06/25/RlujhV.png)](https://imgtu.com/i/RlujhV)
+输出交易见图示：[![示意图6](https://z3.ax1x.com/2021/06/25/RlKScF.png)](https://imgtu.com/i/RlKScF)
 
 ### Stack 
 Core: Last in First Out
 In the ouput content, OP_DUP means duplicating the top element in the stack; OP_EQUALVERIFY means verifying whether two elements in the top of stack are equal.
 
 ### Transaction 
-{% asset_img WechatIMG610.png BitCoin-7 %} 
+[![示意图7](https://z3.ax1x.com/2021/06/25/RlKAtx.png)](https://imgtu.com/i/RlKAtx)
 
 ### Standard transaction script
 P2PKH, Pay to Public Key Hash

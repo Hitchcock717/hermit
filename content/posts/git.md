@@ -17,7 +17,7 @@ categories: Note
 7. [git fetch vs git pull](#7git-fetch-vs-git-pull)
 8. [git merge vs git rebase](#8git-merge-vs-git-rebase)
 9. [子模块](#9子模块)
-10. [Cheatsheet](#10Cheatsheet)
+10. [Cheatsheet](#10cheatsheet)
 ---
 
 ## 1.创建版本库

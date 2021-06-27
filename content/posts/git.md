@@ -7,18 +7,18 @@ categories: Note
 > The source comes from: https://www.liaoxuefeng.com/wiki/896043488029600
 
 # Category
-
-1. [创建版本库](##1.创建版本库)
-2. [时光机穿梭](##2.时光机穿梭)
-3. [远程仓库](##3.远程仓库)
-4. [分支管理](##4.分支管理)
-5. [标签管理](##5.标签管理)
-6. [自定义Git](##6.自定义Git)
-7. [git fetch vs git pull](##7.git&nbsp;fetch&nbsp;vs&nbsp;git&nbsp;pull)
-8. [git merge vs git rebase](##8.git&nbsp;merge&nbsp;vs&nbsp;git&nbsp;rebase)
-9. [子模块](##9.子模块)
-10. [Cheatsheet](##10.Cheatsheet)
-
+---
+1. [创建版本库](#1.创建版本库)
+2. [时光机穿梭](#2.时光机穿梭)
+3. [远程仓库](#3.远程仓库)
+4. [分支管理](#4.分支管理)
+5. [标签管理](#5.标签管理)
+6. [自定义Git](#6.自定义Git)
+7. [git fetch vs git pull](#7.git&nbsp;fetch&nbsp;vs&nbsp;git&nbsp;pull)
+8. [git merge vs git rebase](#8.git&nbsp;merge&nbsp;vs&nbsp;git&nbsp;rebase)
+9. [子模块](#9.子模块)
+10. [Cheatsheet](#10.Cheatsheet)
+---
 
 ## 1.创建版本库
 - 初始化一个Git仓库，使用git init命令。

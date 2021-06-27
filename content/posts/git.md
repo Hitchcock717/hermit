@@ -14,8 +14,8 @@ categories: Note
 4. [分支管理](#4分支管理)
 5. [标签管理](#5标签管理)
 6. [自定义Git](#6自定义Git)
-7. [git fetch vs git pull](#7git&nbsp;fetch&nbsp;vs&nbsp;git&nbsp;pull)
-8. [git merge vs git rebase](#8git&nbsp;merge&nbsp;vs&nbsp;git&nbsp;rebase)
+7. [git fetch vs git pull](#7git-fetch-vs-git-pull)
+8. [git merge vs git rebase](#8git-merge-vs-git-rebase)
 9. [子模块](#9子模块)
 10. [Cheatsheet](#10Cheatsheet)
 ---
@@ -140,7 +140,7 @@ Git鼓励大量使用分支，主分支即为master分支，HEAD严格来说不�
 
 - rebase的目的是使得我们在查看历史提交的变化时更容易，因为分叉的提交需要三方对比。
 
-## 5. 标签管理
+## 5.标签管理
 - 命令git tag <tagname>用于新建一个标签，默认为HEAD，也可以指定一个commit id；
 
 - 命令git tag -a <tagname> -m "blablabla..."可以指定标签信息；
@@ -155,7 +155,7 @@ Git鼓励大量使用分支，主分支即为master分支，HEAD严格来说不�
 
 - 命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
 
-## 6. 自定义Git
+## 6.自定义Git
 - 忽略文件的原则是：
 1. 忽略操作系统自动生成的文件，比如缩略图等；
 2. 忽略编译生成的中间文件、可执行文件等，也就是如果一个文件是通过另一个文件自动生成的，那自动生成的文件就没必要放进版本库，比如Java编译产生的.class文件；
@@ -191,7 +191,7 @@ $ git config --global alias.br branch
 
 - git pull 则是将远程主机的最新内容拉下来后直接合并，即：git pull = git fetch + git merge，这样可能会产生冲突，需要手动解决。
 
-## 8. git merge vs git rebase 
+## 8.git merge vs git rebase 
 [来源1](https://zhuanlan.zhihu.com/p/75499871)
 
 [![示意图](https://z3.ax1x.com/2021/06/27/RYyZsP.png)](https://imgtu.com/i/RYyZsP)
@@ -214,7 +214,7 @@ git rebase --continue
 ```
 **不要在git add 之后习惯性的执行 git commit命令**
 
-## 9. 子模块 
+## 9.子模块 
 [来源](https://blog.csdn.net/guotianqing/article/details/82391665)
 
 - 添加：
@@ -235,7 +235,7 @@ git submodule update --init --recursive
 3. vi .git/config 删除配置项中子模块相关条目
 4. rm .git/module/* 删除模块下的子模块目录，每个子模块对应一个目录，注意只删除对应的子模块目录即可
 
-## 10. Cheatsheet
+## 10.Cheatsheet
 [Git Cheatsheet](https://liaoxuefeng.gitee.io/resource.liaoxuefeng.com/git/git-cheat-sheet.pdf)
 
 

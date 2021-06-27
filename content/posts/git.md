@@ -14,8 +14,8 @@ categories: Note
 4. [分支管理](##4.分支管理)
 5. [标签管理](##5.标签管理)
 6. [自定义Git](##6.自定义Git)
-7. [git fetch vs git pull](##7.git fetch vs git pull)
-8. [git merge vs git rebase](##8.git merge vs git rebase)
+7. [git fetch vs git pull](##7.git&nbsp;fetch&nbsp;vs&nbsp;git&nbsp;pull)
+8. [git merge vs git rebase](##8.git&nbsp;merge&nbsp;vs&nbsp;git&nbsp;rebase)
 9. [子模块](##9.子模块)
 10. [Cheatsheet](##10.Cheatsheet)
 
